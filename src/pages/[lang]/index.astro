@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getLangFromUrl, getLocalizedPathname, useTranslations } from '@/i18n/utils';
+import Typography from '@/components/common/Typography.astro';
+
+const { pathname } = Astro.url;
+
+
+const lang = getLangFromUrl(Astro.url);
+const href = getLocalizedPathname(pathname, "es");
+const href2= getLocalizedPathname(pathname, "en");
+
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  return ["en","es"].map((lang) => {
+    return { params: { lang } };
+  });
+}
+
+---
+
+<Layout title={t("site.title")} description={t("site.description")} lang={lang}>
+	
+	<Typography data-clip-index as="p" variant="medium" color="white" class:list={"uppercase"}>
+		{t("site.title")}
+	</Typography>
+	<a href={href} class="text-white mr-16">Cambiar a Español</a>
+	<a href={href2} class="text-white">Cambiar a English</a>
+	<div class="w-6 h-9 bg-slate-300" />
+</Layout>
+
+<style>
+
+</style>
+

@@ -1,0 +1,72 @@
+---
+
+
+
+export interface Preload {
+	as: string
+	href: string
+	type: string
+	rel?: "preload" | "prefetch"
+	crossorigin?: string
+}
+
+interface Props {
+	title: string
+	description: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
+}
+
+const { title, description, preload, canonical, image = "simple_logo.png" } = Astro.props as Props
+
+// const canonicalURL = canonical
+// 	? new URL(canonical, Astro.site)
+// 	: new URL(Astro.url.pathname, Astro.site)
+// 	console.log({canonicalURL})
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+{
+	preload?.map(({ href, as, type, rel = "preload", crossorigin }) => (
+		<link {rel} {href} {as} {type} {crossorigin} />
+	))
+}
+
+<!-- <link rel="canonical" href={canonicalURL} /> -->
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#3a0ca3" />
+
+<meta name="keywords" content="danfelogar, frontend, banckend, fullstack, react-natice, react, nextjs, swiftUI, UIKit, nodejs, aws, firebase, azure, jest, detox, typescript, javascript" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@DanfelogarDev" />
+<meta name="twitter:creator" content="@Danfelogar" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+<meta name="og:image" content={new URL(image, Astro.url)} />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content={Astro.url} />
+<meta name="og:site_name" content="Danfelogar's Portfolios" />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="es_ES" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<link rel="icon" href="/img/icons/favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/svg+xml" href="/imgs/simple_logo.png" />
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<link rel="icon" type="image/svg+xml" href="/imgs/simple_logo.png" />
+<meta name="msapplication-config" content="/browserconfig.xml" />
+
+

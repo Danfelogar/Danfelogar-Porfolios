@@ -1,0 +1,55 @@
+---
+import SEO, { type Preload } from '@/components/SEO.astro';
+import '@fontsource/poppins';
+
+interface Props {
+	title: string
+	description: string
+	lang: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
+}
+
+const { title, description, preload, canonical, image, lang }: Props = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<SEO
+			canonical={canonical}
+			description={description}
+			image={image}
+			preload={preload}
+			title={title}
+		/>
+	</head>
+	<main>
+		<slot />
+	</main>
+</html>
+<style is:global>
+	:root {
+		--primary: #3a0ca3;
+		--background: #13151a;
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: 'Poppins', sans-serif;
+		background: var(--background);
+		scrollbar-gutter: stable;
+	}
+
+	main {
+		position: relative;
+	}
+</style>
