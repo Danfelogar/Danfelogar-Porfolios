@@ -1,19 +1,26 @@
 import { map } from 'nanostores';
-import { DEFAULT_LANG } from '../i18n/utils';
 
 
 interface Props {
-    lang: "es" | "en"
+    showNavModal: boolean;
+    activeNavLink: string;
 }
 
 export const $settings = map<Props>({
-    lang: DEFAULT_LANG
+    showNavModal: false,
+    activeNavLink: "",
 })
 
-export function changeToSpanish() {
-    $settings.set({ lang: "es" })
+export function changeStateOfShowNavModal() {
+    $settings.set({
+        ...$settings.get(),
+        showNavModal: !$settings.get().showNavModal,
+    })
 }
 
-export function changeToEnglish() {
-    $settings.set({ lang: "en" })
+export function changeActiveNavLink(link:string) {
+    $settings.set({
+        ...$settings.get(),
+        activeNavLink: link,
+    })
 }

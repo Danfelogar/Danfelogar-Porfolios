@@ -16,7 +16,7 @@ export function getLangFromUrl(url: URL) {
   return DEFAULT_LANG;
 }
 
-export function useTranslations(lang?: UiType) {
+export function useTranslations(lang?: UiType ) {
     return function t(
         key: keyof (typeof uiText)[typeof DEFAULT_LANG],
         ...args: any[]

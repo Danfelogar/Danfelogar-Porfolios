@@ -1,7 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getLangFromUrl, getLocalizedPathname, useTranslations } from '@/i18n/utils';
-import Typography from '@/components/common/Typography.astro';
+import Navbar from '@/components/Navbar.astro';
+import Experience from '@/components/Experience.astro';
+import Tech from '@/components/Tech.astro';
+import Works from '@/components/Works.astro';
+import PoularPosts from '@/components/PoularPosts.astro';
+import Contact from '@/components/Contact.astro';
+import { Header } from '@/components/Header';
+import {AboutMe} from '@/components/AboutMe';
 
 const { pathname } = Astro.url;
 
@@ -21,13 +28,20 @@ export async function getStaticPaths() {
 ---
 
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
-
-	<Typography data-clip-index as="p" variant="medium" color="white" class:list={"uppercase"}>
-		{t("site.title")}
-	</Typography>
-	<a href={href} class="text-white mr-16">Cambiar a Español</a>
-	<a href={href2} class="text-white">Cambiar a English</a>
-	<div class="w-6 h-9 bg-slate-300" />
+  <div class="relative z-0 bg-primary-2">
+	<div class="bg-personal-bg bg-cover bg-no-repeat bg-center">
+		<Navbar />
+		<Header client:load  transition:persist lang={lang}/>
+	</div>
+	<AboutMe  client:load  transition:persist />
+	<Experience />
+	<Tech />
+	<Works />
+	<PoularPosts />
+	<div class="relative z-0">
+		<Contact />
+	</div>
+  </div>
 </Layout>
 
 <style>

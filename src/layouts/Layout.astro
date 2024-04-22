@@ -25,14 +25,21 @@ const { title, description, preload, canonical, image, lang }: Props = Astro.pro
 			title={title}
 		/>
 	</head>
-	<main>
+	<main class="w-full h-full">
 		<slot />
 	</main>
 </html>
 <style is:global>
 	:root {
 		--primary: #3a0ca3;
-		--background: #13151a;
+		--alternative-primary: #9684ce;
+		--background: #050816;
+		--secondary: #aaa6c3;
+		--tertiary: #151030;
+		--black-100: #100d25;
+		--black-200: #090325;
+		--white-100: #f3f3f3;
+		--green-200: #00cea8;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -46,10 +53,76 @@ const { title, description, preload, canonical, image, lang }: Props = Astro.pro
 	html {
 		font-family: 'Poppins', sans-serif;
 		background: var(--background);
-		scrollbar-gutter: stable;
+		overflow-y: auto;
 	}
 
 	main {
 		position: relative;
 	}
+
+	.black-gradient {
+		background: #000000;
+		background: -webkit-linear-gradient(
+			to right,
+			#434343,
+			#000000
+		);
+		background: linear-gradient(
+			to right,
+			#434343,
+			#000000
+		);
+	}
+
+	.violet-gradient {
+		background: var(--alternative-primary);
+		background: linear-gradient(-90deg, var(--alternative-primary) 0%, rgba(60, 51, 80, 0) 100%);
+		background: -webkit-linear-gradient(
+			-90deg,
+			var(--alternative-primary) 0%,
+			rgba(60, 51, 80, 0) 100%
+		);
+	}
+
+	.green-pink-gradient {
+		background: var(--green-200);
+		background: linear-gradient(90.13deg, var(--green-200) 1.9%, var(--alternative-primary) 97.5%);
+		background: -webkit-linear-gradient(-90.13deg, var(--green-200) 1.9%, var(--alternative-primary) 97.5%);
+	}
+	/* dynamic text */
+	
+	.dynamic-txts {
+		display: block;
+		padding-left: 10px;
+		/* border: 1px solid var(--alternative-primary); */
+		animation: spin_worrds 6s infinite;
+	}
+
+	@keyframes spin_worrds {
+		10% {
+			transform: translateY(-112%);
+		}
+		25% {
+			transform: translateY(-100%);
+		}
+		35% {
+			transform: translateY(-212%);
+		}
+		50% {
+			transform: translateY(-200%);
+		}
+		60% {
+			transform: translateY(-312%);
+		}
+		75% {
+			transform: translateY(-300%);
+		}
+		85% {
+			transform: translateY(-412%);
+		}
+		100% {
+			transform: translateY(-400%);
+		}
+	}
+
 </style>
