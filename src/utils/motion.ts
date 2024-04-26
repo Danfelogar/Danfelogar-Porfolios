@@ -17,7 +17,7 @@ export const textVariant = (delay?: number) => {
       },
     };
   };
-  
+
   export const fadeIn = (direction: IDirectionType, type: any, delay: number, duration:number) => {
     return {
       hidden: {
@@ -38,7 +38,7 @@ export const textVariant = (delay?: number) => {
       },
     };
   };
-  
+
   export const zoomIn = (delay: number, duration: number) => {
     return {
       hidden: {
@@ -57,7 +57,7 @@ export const textVariant = (delay?: number) => {
       },
     };
   };
-  
+
   export const slideIn = (direction: IDirectionType , type: any, delay: number, duration: number) => {
     return {
       hidden: {
@@ -76,7 +76,7 @@ export const textVariant = (delay?: number) => {
       },
     };
   };
-  
+
   export const staggerContainer = (staggerChildren?: any, delayChildren?: any) => {
     return {
       hidden: {},

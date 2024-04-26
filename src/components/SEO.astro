@@ -14,11 +14,10 @@ interface Props {
 	title: string
 	description: string
 	preload?: Array<Preload>
-	canonical?: string
 	image?: string
 }
 
-const { title, description, preload, canonical, image = "simple_logo.png" } = Astro.props as Props
+const { title, description, preload, image = "simple_logo.png" } = Astro.props as Props
 
 // const canonicalURL = canonical
 // 	? new URL(canonical, Astro.site)

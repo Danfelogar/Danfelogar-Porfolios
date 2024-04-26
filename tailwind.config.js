@@ -21,7 +21,10 @@ export default {
 			},
 			screens: {
 				xs: "360px",
-				...defaultTheme.screens,
+				sm: '480px',
+				md: '768px',
+				lg: '976px',
+				xl: '1440px',
 				"3xl": "1650px",
 			},
 			boxShadow: {

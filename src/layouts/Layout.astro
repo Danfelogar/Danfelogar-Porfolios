@@ -1,5 +1,6 @@
 ---
 import SEO, { type Preload } from '@/components/SEO.astro';
+import LightsBackground from '@/components/common/LightsBackground.astro';
 import '@fontsource/poppins';
 
 interface Props {
@@ -7,18 +8,16 @@ interface Props {
 	description: string
 	lang: string
 	preload?: Array<Preload>
-	canonical?: string
 	image?: string
 }
 
-const { title, description, preload, canonical, image, lang }: Props = Astro.props;
+const { title, description, preload, image, lang }: Props = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<SEO
-			canonical={canonical}
 			description={description}
 			image={image}
 			preload={preload}
@@ -33,6 +32,7 @@ const { title, description, preload, canonical, image, lang }: Props = Astro.pro
 	:root {
 		--primary: #3a0ca3;
 		--alternative-primary: #9684ce;
+		--color-accent: #3a0ca3;
 		--background: #050816;
 		--secondary: #aaa6c3;
 		--tertiary: #151030;
@@ -54,6 +54,24 @@ const { title, description, preload, canonical, image, lang }: Props = Astro.pro
 		font-family: 'Poppins', sans-serif;
 		background: var(--background);
 		overflow-y: auto;
+	}
+
+	/* Estilos para el scrollbar */
+	html::-webkit-scrollbar {
+		width: 8px; /* Ancho del scrollbar */
+	}
+
+	html::-webkit-scrollbar-track {
+		background: transparent; /* Fondo transparente */
+	}
+
+	html::-webkit-scrollbar-thumb {
+		background: var(--primary); /* Color primario */
+		border-radius: 4px; /* Borde redondeado */
+	}
+
+	html::-webkit-scrollbar-thumb:hover {
+		background: var(--alternative-primary); /* Color alternativo al pasar el mouse */
 	}
 
 	main {
@@ -90,7 +108,7 @@ const { title, description, preload, canonical, image, lang }: Props = Astro.pro
 		background: -webkit-linear-gradient(-90.13deg, var(--green-200) 1.9%, var(--alternative-primary) 97.5%);
 	}
 	/* dynamic text */
-	
+
 	.dynamic-txts {
 		display: block;
 		padding-left: 10px;

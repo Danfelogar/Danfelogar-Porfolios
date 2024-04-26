@@ -17,49 +17,56 @@ const active = $settings.get().activeNavLink
 const isOpenModal = $settings.get().showNavModal
 ---
 
-<div class={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary-2`}>
+<div id="wrapper-nav" class={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20`}>
     <div class="w-full flex justify-between items-center max-w-7xl mx-auto">
         <a class="flex items-center gap-2" id="logo-link">
             <img src="../../public/imgs/simple_logo.png" alt="logo" class="w-9 h-9 object-contain rounded-full cursor-pointer">
-            <p class="text-white text-[18px] font-bold cursor-pointer flex">Danfelogar<span class="sm:block hidden ml-1">| JavaScript Dev</span></p>
+            <p class="text-white text-[18px] font-bold cursor-pointer flex">Danfelogar<span class="md:block hidden ml-1">| FullStack</span></p>
         </a>
 
-        <ul class='list-none hidden sm:flex flex-row gap-10'>
+        <ul class='list-none hidden sm:flex flex-row gap-5'>
+          <a href={`${lang === "en" ? hrefES : hrefEN }`} class="cursor-pointer">
+            <img src={lang === "en" ? "../../public/imgs/spain.png" : "../../public/imgs/usa.png"} class="w-6 h-6" />
+          </a>
           {navLinks.map((nav) => (
             <li
             id="nav-link"
               class={`${
-                active === t(nav.title) ? "text-white" : "text-secondary"
+                active === t(nav.title as keyof typeof t) ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              data-message={t(nav.title)}
+              data-message={t(nav.title as keyof typeof t)}
             >
-              <a href={`#${nav.id}`}>{t(nav.title)}</a>
+              <a href={`#${nav.id}`}>{t(nav.title as keyof typeof t)}</a>
             </li>
           ))}
         </ul>
 
-        <img
-        src={isOpenModal ? "../../public/icons/close.svg" : "../../public/icons/menu.svg"}
-        alt='menu'
-        id="icon-hamburger"
-        class='w-[28px] h-[28px] object-contain sm:hidden flex cursor-pointer'
-      />
+        <ul class='list-none sm:hidden flex flex-row gap-5'>
+          <a href={`${lang === "en" ? hrefES : hrefEN }`} class="cursor-pointer">
+            <img src={lang === "en" ? "../../public/imgs/spain.png" : "../../public/imgs/usa.png"} class="w-6 h-6" />
+          </a>
+          <img
+          src={isOpenModal ? "../../public/icons/close.svg" : "../../public/icons/menu.svg"}
+          alt='menu'
+          id="icon-hamburger"
+          class='w-[28px] h-[28px] object-contain sm:hidden flex cursor-pointer'
+          />
+        </ul>
 
-      <div
-      id="conetent-nav-mobile"
-        class={`hidden p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}>
+      <div id="conetent-nav-mobile" class={`hidden p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-orange-400`}>
+        <p>ss</p>
         <ul class='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-          {navLinks.map((nav) => (
-            <li
-              class={`font-poppins font-medium cursor-pointer text-[16px] ${
-                active === t(nav.title) ? "text-white" : "text-secondary"
-              }`}
-              id="nav-link-mobile"
-              data-message={t(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{t(nav.title)}</a>
-            </li>
-          ))}
+        {navLinks.map((nav) => (
+          <li
+          class={`font-poppins font-medium cursor-pointer text-[16px] ${
+            active === t(nav.title as keyof typeof t) ? "text-white" : "text-secondary"
+          }`}
+          id="nav-link-mobile"
+          data-message={t(nav.title as keyof typeof t)}
+          >
+            <a href={`#${nav.id}`}>{t(nav.title as keyof typeof t)}</a>
+          </li>
+        ))}
         </ul>
       </div>
     </div>
@@ -69,7 +76,7 @@ const isOpenModal = $settings.get().showNavModal
 
     import { $settings, changeActiveNavLink, changeStateOfShowNavModal } from "@/store/store"
 
-
+    const wrapperNav = document.getElementById('wrapper-nav');
     const logoLink = document.getElementById('logo-link');
     const iconHamburger = document.getElementById('icon-hamburger');
     const navLink = document.getElementById('nav-link');
@@ -115,4 +122,18 @@ const isOpenModal = $settings.get().showNavModal
     }
     });
 
+    // Asegúrate de que el DOM esté completamente cargado antes de ejecutar el script
+    document.addEventListener('DOMContentLoaded', () => {
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY >= 70) {
+
+          wrapperNav?.classList.remove("bg-transparent")
+          wrapperNav?.classList.add("bg-[var(--background)]")
+        } else {
+          wrapperNav?.classList.remove("bg-[var(--background)]")
+          wrapperNav?.classList.add("bg-trannsparent")
+        }
+      });
+    });
 </script>

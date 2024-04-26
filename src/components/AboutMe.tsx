@@ -3,11 +3,14 @@ import Tilt from 'react-parallax-tilt';
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, textVariant } from "@/utils/motion";
 import { styles } from "@/styles/styles";
+import { useTranslations } from '@/i18n/utils';
+import { timeOfExperience } from '@/utils/constants';
 
-const ServiceCard = ({ index, title, icon }:{
+const ServiceCard = ({ index, title, icon,pdfFile }:{
     index: number;
     title: string;
     icon: string;
+    pdfFile?: string;
 }) => (
   <Tilt  className='xs:w-[250px] w-full'>
     <motion.div
@@ -23,7 +26,9 @@ const ServiceCard = ({ index, title, icon }:{
           className='w-16 h-16 object-contain'
         />
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
+        <h3 onClick={()=>{
+          if(pdfFile) window.open(pdfFile, '_blank')
+        }} className={` text-[20px] font-bold text-center ${pdfFile ? 'cursor-pointer text-alternative-primary' : 'text-white'}`}>
           {title}
         </h3>
       </div>
@@ -31,26 +36,9 @@ const ServiceCard = ({ index, title, icon }:{
   </Tilt>
 );
 
-const services = [
-    {
-      title: "Web Developer",
-      icon: "web",
-    },
-    {
-      title: "React Native Developer",
-      icon: "mobile",
-    },
-    {
-      title: "Backend Developer",
-      icon: "backend",
-    },
-    {
-      title: "Content Creator",
-      icon: "creator",
-    },
-  ];
-
-export const AboutMe = () => {
+export const AboutMe = ({lang}:{lang: "en" | "es" | undefined}) => {
+  const t = useTranslations(lang);
+  const { months, years } = timeOfExperience()
   return (
     <motion.section
     variants={staggerContainer()}
@@ -60,34 +48,37 @@ export const AboutMe = () => {
     viewport={{ once: true, amount: 0.25 }}
     className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
   >
-    <span className='hash-span' id={"About"}>
+    <span className='hash-span' id={"about"}>
       &nbsp;
     </span>
 
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubText}>{t("about.subTitle")}</p>
+        <h2 className={styles.sectionHeadText}>{t("about.title")}</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        {t("about.text1")} <span className='text-alternative-primary'>{t("about.text2")}</span>{t("about.text3")}<span className='text-alternative-primary'>{`${years}`} {t("about.textYear")} {t("about.and")} {`${months}`} meses {t("about.text4")}
+          </span> {t("about.text5")}
       </motion.p>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
+      <div className='mt-20 flex flex-wrap gap-10 justify-center'>
+        {/* {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
-        ))}
+        ))} */}
+        <ServiceCard  index={0} icon="../../public/icons/webIcon.svg" title={t("about.webDeveloper")} />
+        <ServiceCard  index={1} icon="../../public/icons/reactNativeIcon.svg" title={t("about.reactNativeDeveloper")} />
+        <ServiceCard  index={2} icon="../../public/icons/backendIcon.svg" title={t("about.backendDeveloper")} />
+        <ServiceCard  index={3} icon="../../public/icons/swiftIcon.svg" title={t("about.iOSDeveloper")} />
+        <ServiceCard pdfFile={
+          lang === "en" ? "../../public/pdfs/Cv-danielpolo-frontend-english.docx.pdf" : "../../public/pdfs/Cv-danielpolo-frontend-español.docx.pdf"
+        } index={4} icon="../../public/icons/pdf.svg" title={t("about.pdf")} />
       </div>
     </>
   </motion.section>
-   
   );
 };

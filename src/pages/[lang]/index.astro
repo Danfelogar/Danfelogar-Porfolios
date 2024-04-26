@@ -1,49 +1,57 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getLangFromUrl, getLocalizedPathname, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Navbar from '@/components/Navbar.astro';
 import About from '@/components/About.astro';
-import Experience from '@/components/Experience.astro';
-import Tech from '@/components/Tech.astro';
-import Works from '@/components/Works.astro';
-import PoularPosts from '@/components/PoularPosts.astro';
-import Contact from '@/components/Contact.astro';
+import {Works} from '@/components/Works';
+import { Timeline } from '@/components/Timeline';
+import { Header } from '@/components/Header';
+import { AboutMe } from '@/components/AboutMe';
+import SmokeBackground from '@/components/common/SmokeBackground.astro';
+import { Tech } from '@/components/Tech';
+import { PopularPosts } from '@/components/PopularPosts';
+import { Contact } from '@/components/Contact';
+import { Stars } from '@/components/3DModels/Stars';
 
-const { pathname } = Astro.url;
+export function getStaticPaths () {
+ return [
+    {params: {lang: 'en'}},
+    {params: {lang: 'es'}},
+	{ params: { lang: 'web' } },
+    { params: { lang: 'mobile' } },
+    { params: { lang: 'backend' } },
+    { params: { lang: 'creator' } },
+  ];
+}
 
+// const { pathname } = Astro.url;
 
 const lang = getLangFromUrl(Astro.url);
-const href = getLocalizedPathname(pathname, "es");
-const href2= getLocalizedPathname(pathname, "en");
+// const href = getLocalizedPathname(pathname, "es");
+// const href2= getLocalizedPathname(pathname, "en");
 
 const t = useTranslations(lang);
 
-export async function getStaticPaths() {
-  return ["en","es"].map((lang) => {
-    return { params: { lang } };
-  });
-}
-
 ---
-
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
 	<div class="relative z-0 bg-primary-2">
-	  <div class="bg-personal-bg bg-cover bg-no-repeat bg-center">
-		<Navbar />
-		<header />
-	  </div>
-	  <About/>
-	  <Experience />
-	  <Tech />
-	  <Works />
-	  <PoularPosts />
-	  <div class="relative z-0">
-		  <Contact />
-	  </div>
+		<div class="bg-personal-bg bg-cover bg-no-repeat bg-center">
+			<Navbar />
+			<Header client:load transition:persist lang={lang}/>
+			<div class=" bg-gradient-to-b from-transparent  to-[var(--background)]  w-full h-12" />
+		</div>
+		<div>
+			<SmokeBackground />
+			<AboutMe client:load transition:persist lang={lang}/>
+			<Timeline client:load transition:persist lang={lang} />
+			<Tech client:load transition:persist />
+			<Works client:load transition:persist lang={lang} />
+		</div>
+		<PopularPosts client:load transition:persist lang={lang}/>
+		<div class="relative z-0">
+			<Contact client:load transition:persist lang={lang} />
+			<Stars client:load transition:persist/>
+		</div>
 	</div>
-  </Layout>
-  
-  <style>
-  
-  </style>
+</Layout>
 

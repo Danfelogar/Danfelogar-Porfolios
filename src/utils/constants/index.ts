@@ -1,31 +1,156 @@
-// import {
-//     mobile,
-//     backend,
-//     creator,
-//     web,
-//     javascript,
-//     typescript,
-//     html,
-//     css,
-//     reactjs,
-//     redux,
-//     tailwind,
-//     nodejs,
-//     mongodb,
-//     git,
-//     figma,
-//     docker,
-//     meta,
-//     starbucks,
-//     tesla,
-//     shopify,
-//     carrent,
-//     jobit,
-//     tripguide,
-//     threejs,
-//   } from "../assets";
+export function timeOfExperience(): { years: number, months: number }{
+    // Crear la fecha de inicio (diciembre de 2021)
+    const fechaInicio = new Date(2021, 11, 1); // Los meses en JavaScript empiezan en 0 (enero)
 
-  export const navLinks = [
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+
+    // Calcular la diferencia en años
+    let differenceInYears = fechaActual.getFullYear() - fechaInicio.getFullYear();
+
+    // Ajustar la diferencia en años si el mes actual es menor que el mes de inicio
+    if (fechaActual.getMonth() < fechaInicio.getMonth() ||
+        (fechaActual.getMonth() === fechaInicio.getMonth() && fechaActual.getDate() < fechaInicio.getDate())) {
+        differenceInYears--;
+    }
+
+    // Calcular la diferencia en meses
+    let differenceInMouths = fechaActual.getMonth() - fechaInicio.getMonth();
+    if (differenceInMouths < 0) {
+        differenceInMouths += 12;
+    }
+
+    // Ajustar la diferencia en meses si el día actual es menor que el día de inicio
+    if (fechaActual.getDate() < fechaInicio.getDate()) {
+        differenceInMouths--;
+    }
+
+    // Devolver el resultado en formato "X años Y meses"
+    return {
+        years: differenceInYears,
+        months: differenceInMouths
+    }
+}
+
+export const getEnvVariable = (variableName:"PUBLIC_SUPABASE_URL" | "PUBLIC_SUPABASE_ANON_KEY" | "PUBLIC_EMAILJS_SERVICE_ID" | "PUBLIC_EMAILJS_TEMPLATE_ID" | "PUBLIC_EMAILJS_PUBLIC_KEY" ) => {
+    return import.meta.env[variableName] ?? process.env[variableName];
+}
+
+export const formatDate = (date: Date, lang: "es" | "en"): string => {
+    const monthsEn: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthsEs: string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const months = lang === "en" ? monthsEn : monthsEs;
+
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+        return '';
+    }
+
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${month} ${year}`;
+}
+
+export const formatDateRange = ({date1, date2, lang}:{date1: string | Date, date2?: string | Date, lang: "es" | "en"}): string => {
+
+    const parsedDate1 = typeof date1 === 'string' ? new Date(date1) : date1;
+    const parsedDate2 = typeof date2 === 'string' ? new Date(date2) : date2;
+
+    const formattedDate1 = formatDate(parsedDate1, lang);
+
+    if (!parsedDate2) {
+        return formattedDate1;
+    }
+
+    const formattedDate2 = formatDate(parsedDate2, lang);
+
+    return `${formattedDate1} - ${formattedDate2}`;
+}
+
+export const formatDateToDDMMYYYY = (dateString: Date): string => {
+    const date = new Date(dateString)
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Los meses en JavaScript comienzan desde 0
+    const year = date.getFullYear()
+
+    return `${day}/${month}/${year}`;
+   };
+
+export enum ITypeDevelopment {
+    MOBILE = 'MOBILE',
+    WEB = 'WEB',
+    NATIVE_IOS = 'NATIVE_IOS',
+}
+
+export enum ITechnologies {
+    HTML = 'html',
+    CSS = 'css',
+    JAVASCRIPT = 'javascript',
+    TYPESCRIPT = 'typescript',
+    REACT = 'react',
+    REACT_NATIVE = 'react-native',
+    NEXT_JS = 'next-js',
+    NODE_JS = 'node-js',
+    EXPRESS = 'express',
+    MONGO_DB = 'mongo-db',
+    PRISMA = 'prisma',
+    SUPABASE = 'supabase',
+    AWS = 'aws',
+    FIREBASE = 'firebase',
+    ANT_DESIGN = 'ant-design',
+    MATERIAL_UI = 'material-ui',
+    BOOTSTRAP = 'bootstrap',
+    DETOX = 'detox',
+    JEST = 'jest',
+    TESTING_LIBRARY = 'testing-library',
+    TAILWIND_CSS = 'tailwind-css',
+    SWIFTUI = 'swiftui',
+    UIKIT = 'uikit',
+}
+
+export enum TechnologyColors {
+    HTML = '#E34F26',
+    CSS = '#264de4',
+    JAVASCRIPT = '#F7DF1E',
+    TYPESCRIPT = '#3178C6',
+    REACT = '#61DAFB',
+    REACT_NATIVE = '#61DAFB',
+    NEXT_JS = '#0070F3',
+    NODE_JS = '#339933',
+    EXPRESS = '#317132',
+    MONGO_DB = '#47A248',
+    PRISMA = '#3982CE',
+    SUPABASE = '#60A5FA',
+    AWS = '#FF9900',
+    FIREBASE = '#FFA611',
+    ANT_DESIGN = '#F5222D',
+    MATERIAL_UI = '#0081CB',
+    BOOTSTRAP = '#563D7C',
+    DETOX = '#7146B8',
+    JEST = '#C21325',
+    TESTING_LIBRARY = '#E33359',
+    TAILWIND_CSS = '#38B2AC',
+    SWIFTUI = '#FF6700',
+    UIKIT = '#00A8FF',
+}
+
+export enum Topics {
+    REACT = 'REACT',
+    REACT_NATIVE = 'REACT_NATIVE',
+    NEXT_JS = 'NEXT_JS',
+    NODE_JS = 'NODE_JS',
+    EXPRESS = 'EXPRESS',
+    MONGO_DB = 'MONGO_DB',
+    AWS = 'AWS',
+    FIREBASE = 'FIREBASE',
+    PRISMA = 'PRISMA',
+    SUPABASE = 'SUPABASE',
+    SWIFTUI = 'SWIFTUI',
+    UIKIT = 'UIKIT',
+   }
+   
+
+export const navLinks = [
     {
         id: "about",
         title: "nav.about",
@@ -35,231 +160,94 @@
         title: "nav.work",
     },
     {
-        id: "contact",
-        title: "nav.contact",
+        id: "project",
+        title: "nav.project",
     }
 ]
 
-  // const services = [
-  //   {
-  //     title: "Web Developer",
-  //     icon: web,
-  //   },
-  //   {
-  //     title: "React Native Developer",
-  //     icon: mobile,
-  //   },
-  //   {
-  //     title: "Backend Developer",
-  //     icon: backend,
-  //   },
-  //   {
-  //     title: "Content Creator",
-  //     icon: creator,
-  //   },
-  // ];
-  
-  // const technologies = [
-  //   {
-  //     name: "HTML 5",
-  //     icon: html,
-  //   },
-  //   {
-  //     name: "CSS 3",
-  //     icon: css,
-  //   },
-  //   {
-  //     name: "JavaScript",
-  //     icon: javascript,
-  //   },
-  //   {
-  //     name: "TypeScript",
-  //     icon: typescript,
-  //   },
-  //   {
-  //     name: "React JS",
-  //     icon: reactjs,
-  //   },
-  //   {
-  //     name: "Redux Toolkit",
-  //     icon: redux,
-  //   },
-  //   {
-  //     name: "Tailwind CSS",
-  //     icon: tailwind,
-  //   },
-  //   {
-  //     name: "Node JS",
-  //     icon: nodejs,
-  //   },
-  //   {
-  //     name: "MongoDB",
-  //     icon: mongodb,
-  //   },
-  //   {
-  //     name: "Three JS",
-  //     icon: threejs,
-  //   },
-  //   {
-  //     name: "git",
-  //     icon: git,
-  //   },
-  //   {
-  //     name: "figma",
-  //     icon: figma,
-  //   },
-  //   {
-  //     name: "docker",
-  //     icon: docker,
-  //   },
-  // ];
-  
-  // const experiences = [
-  //   {
-  //     title: "React.js Developer",
-  //     company_name: "Starbucks",
-  //     icon: starbucks,
-  //     iconBg: "#383E56",
-  //     date: "March 2020 - April 2021",
-  //     points: [
-  //       "Developing and maintaining web applications using React.js and other related technologies.",
-  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //       "Implementing responsive design and ensuring cross-browser compatibility.",
-  //       "Participating in code reviews and providing constructive feedback to other developers.",
-  //     ],
-  //   },
-  //   {
-  //     title: "React Native Developer",
-  //     company_name: "Tesla",
-  //     icon: tesla,
-  //     iconBg: "#E6DEDD",
-  //     date: "Jan 2021 - Feb 2022",
-  //     points: [
-  //       "Developing and maintaining web applications using React.js and other related technologies.",
-  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //       "Implementing responsive design and ensuring cross-browser compatibility.",
-  //       "Participating in code reviews and providing constructive feedback to other developers.",
-  //     ],
-  //   },
-  //   {
-  //     title: "Web Developer",
-  //     company_name: "Shopify",
-  //     icon: shopify,
-  //     iconBg: "#383E56",
-  //     date: "Jan 2022 - Jan 2023",
-  //     points: [
-  //       "Developing and maintaining web applications using React.js and other related technologies.",
-  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //       "Implementing responsive design and ensuring cross-browser compatibility.",
-  //       "Participating in code reviews and providing constructive feedback to other developers.",
-  //     ],
-  //   },
-  //   {
-  //     title: "Full stack Developer",
-  //     company_name: "Meta",
-  //     icon: meta,
-  //     iconBg: "#E6DEDD",
-  //     date: "Jan 2023 - Present",
-  //     points: [
-  //       "Developing and maintaining web applications using React.js and other related technologies.",
-  //       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //       "Implementing responsive design and ensuring cross-browser compatibility.",
-  //       "Participating in code reviews and providing constructive feedback to other developers.",
-  //     ],
-  //   },
-  // ];
-  
-  // const testimonials = [
-  //   {
-  //     testimonial:
-  //       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-  //     name: "Sara Lee",
-  //     designation: "CFO",
-  //     company: "Acme Co",
-  //     image: "https://randomuser.me/api/portraits/women/4.jpg",
-  //   },
-  //   {
-  //     testimonial:
-  //       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-  //     name: "Chris Brown",
-  //     designation: "COO",
-  //     company: "DEF Corp",
-  //     image: "https://randomuser.me/api/portraits/men/5.jpg",
-  //   },
-  //   {
-  //     testimonial:
-  //       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-  //     name: "Lisa Wang",
-  //     designation: "CTO",
-  //     company: "456 Enterprises",
-  //     image: "https://randomuser.me/api/portraits/women/6.jpg",
-  //   },
-  // ];
-  
-  // const projects = [
-  //   {
-  //     name: "Car Rent",
-  //     description:
-  //       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-  //     tags: [
-  //       {
-  //         name: "react",
-  //         color: "blue-text-gradient",
-  //       },
-  //       {
-  //         name: "mongodb",
-  //         color: "green-text-gradient",
-  //       },
-  //       {
-  //         name: "tailwind",
-  //         color: "pink-text-gradient",
-  //       },
-  //     ],
-  //     image: carrent,
-  //     source_code_link: "https://github.com/",
-  //   },
-  //   {
-  //     name: "Job IT",
-  //     description:
-  //       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-  //     tags: [
-  //       {
-  //         name: "react",
-  //         color: "blue-text-gradient",
-  //       },
-  //       {
-  //         name: "restapi",
-  //         color: "green-text-gradient",
-  //       },
-  //       {
-  //         name: "scss",
-  //         color: "pink-text-gradient",
-  //       },
-  //     ],
-  //     image: jobit,
-  //     source_code_link: "https://github.com/",
-  //   },
-  //   {
-  //     name: "Trip Guide",
-  //     description:
-  //       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-  //     tags: [
-  //       {
-  //         name: "nextjs",
-  //         color: "blue-text-gradient",
-  //       },
-  //       {
-  //         name: "supabase",
-  //         color: "green-text-gradient",
-  //       },
-  //       {
-  //         name: "css",
-  //         color: "pink-text-gradient",
-  //       },
-  //     ],
-  //     image: tripguide,
-  //     source_code_link: "https://github.com/",
-  //   },
-  // ];
-  
-  // export { services, technologies, experiences, testimonials, projects };
+export const technologies = [
+    {
+        name: "HTML 5",
+        icon: "../../../public/imgs/html.png",
+    },
+    {
+        name: "CSS 3",
+        icon: "../../../public/imgs/css.png",
+    },
+    {
+        name: "JavaScript",
+        icon: "../../../public/imgs/javascript.png",
+    },
+    {
+        name: "TypeScript",
+        icon: "../../../public/imgs/typescript.png",
+    },
+    {
+        name: "SwiftUI",
+        icon: "../../../public/imgs/swiftUI.png",
+    },
+    {
+        name: "UI Kit",
+        icon: "../../../public/imgs/UIKit.webp",
+    },
+    {
+        name: "React Native",
+        icon: "../../../public/imgs/reactNative.png",
+    },
+    {
+        name: "Expo",
+        icon: "../../../public/imgs/expoGo.png",
+    },
+    // {
+    //     name: "Jest",
+    //     icon: "../../../public/imgs/jest.png",
+    // },
+    // {
+    //     name: "Detox",
+    //     icon: "../../../public/imgs/Detox.png",
+    // },
+    {
+        name: "React JS",
+        icon: "../../../public/imgs/reactjs.png",
+    },
+    {
+        name: "Next JS",
+        icon: "../../../public/imgs/nextjs.png",
+    },
+    // {
+    //     name: "Redux Toolkit",
+    //     icon: "../../../public/imgs/redux.png",
+    // },
+    {
+        name: "Node JS",
+        icon: "../../../public/imgs/nodejs.png",
+    },
+    // {
+    //     name: "MongoDB",
+    //     icon: "../../../public/imgs/mongodb.png",
+    // },
+    {
+        name: "Supabase",
+        icon: "../../../public/imgs/supabase.png",
+    },
+    // {
+    //     name: "Tailwind CSS",
+    //     icon: "../../../public/imgs/tailwind.png",
+    // },
+    // {
+    //     name: "Ant Design",
+    //     icon: "../../../public/imgs/ant-design.png",
+    // },
+    // {
+    //     name: "Material UI",
+    //     icon: "../../../public/imgs/material-ui.png",
+    // },
+    // {
+    //     name: "git",
+    //     icon: "../../../public/imgs/git.png",
+    // },
+    // {
+    //     name: "GitHub",
+    //     icon: "../../../public/imgs/gitHub.png",
+    // },
+];
