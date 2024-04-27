@@ -39,7 +39,7 @@ const SetUpCanvas = ({ isMobile }:{ isMobile: boolean }) => {
 
       <primitive
         object={setUp.scene}
-        scale={isMobile ? 0.7 : 0.75}
+        scale={isMobile ? 1 : 1.35}
         position={isMobile ? [0, -4.5, 0] : [0, -3.3, 0]}
         rotation={[-0.01, -0.2, -0.1]}
       />
@@ -79,6 +79,7 @@ export const SetUp = () => {
       dpr={[1, 2]}
        camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
+      className="relative !w-[80%] sm:!w-[620px] xl:!w-[820px] !h-[360px] sm:!h-[400px] xl:!h-[440px] top-[40%] sm:top-[42%] left-[9%] md:lef-[10%] lg:left-[23%]"
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -86,7 +87,7 @@ export const SetUp = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <SetUpCanvas isMobile={isMobile} />
+          <SetUpCanvas isMobile={isMobile} />
       </Suspense>
 
       <Preload all />

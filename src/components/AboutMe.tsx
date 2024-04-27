@@ -75,7 +75,7 @@ export const AboutMe = ({lang}:{lang: "en" | "es" | undefined}) => {
         <ServiceCard  index={2} icon="/icons/backendIcon.svg" title={t("about.backendDeveloper")} />
         <ServiceCard  index={3} icon="/icons/swiftIcon.svg" title={t("about.iOSDeveloper")} />
         <ServiceCard pdfFile={
-          lang === "en" ? "/pdfs/Cv-danielpolo-frontend-english.docx.pdf" : "/pdfs/Cv-danielpolo-frontend-español.docx.pdf"
+          lang === "en" ? "/pdfs/Cv-danielpolo-frontend-english.pdf" : "/pdfs/Cv-danielpolo-frontend-español.pdf"
         } index={4} icon="/icons/pdf.svg" title={t("about.pdf")} />
       </div>
     </>
