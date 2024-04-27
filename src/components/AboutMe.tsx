@@ -70,13 +70,13 @@ export const AboutMe = ({lang}:{lang: "en" | "es" | undefined}) => {
         {/* {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))} */}
-        <ServiceCard  index={0} icon="../../public/icons/webIcon.svg" title={t("about.webDeveloper")} />
-        <ServiceCard  index={1} icon="../../public/icons/reactNativeIcon.svg" title={t("about.reactNativeDeveloper")} />
-        <ServiceCard  index={2} icon="../../public/icons/backendIcon.svg" title={t("about.backendDeveloper")} />
-        <ServiceCard  index={3} icon="../../public/icons/swiftIcon.svg" title={t("about.iOSDeveloper")} />
+        <ServiceCard  index={0} icon="/icons/webIcon.svg" title={t("about.webDeveloper")} />
+        <ServiceCard  index={1} icon="/icons/reactNativeIcon.svg" title={t("about.reactNativeDeveloper")} />
+        <ServiceCard  index={2} icon="/icons/backendIcon.svg" title={t("about.backendDeveloper")} />
+        <ServiceCard  index={3} icon="/icons/swiftIcon.svg" title={t("about.iOSDeveloper")} />
         <ServiceCard pdfFile={
-          lang === "en" ? "../../public/pdfs/Cv-danielpolo-frontend-english.docx.pdf" : "../../public/pdfs/Cv-danielpolo-frontend-español.docx.pdf"
-        } index={4} icon="../../public/icons/pdf.svg" title={t("about.pdf")} />
+          lang === "en" ? "/pdfs/Cv-danielpolo-frontend-english.docx.pdf" : "/pdfs/Cv-danielpolo-frontend-español.docx.pdf"
+        } index={4} icon="/icons/pdf.svg" title={t("about.pdf")} />
       </div>
     </>
   </motion.section>

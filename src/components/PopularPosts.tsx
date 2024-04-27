@@ -3,7 +3,7 @@ import { fadeIn, textVariant } from '@/utils/motion';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../i18n/utils';
 import { useEffect, useState } from 'react';
-import { formatDateToDDMMYYYY, getEnvVariable } from '@/utils/constants';
+import { Topics, formatDateToDDMMYYYY, getEnvVariable } from '@/utils/constants';
 import type { IPost } from '@/types/popularPosts';
 
 const PostCard = ({post, lang = "en",
@@ -22,7 +22,7 @@ index}: {post: IPost; lang?: "en" | "es";index: number}) => (
           <div className='flex-1 flex flex-col'>
                 <div className='flex w-full'>
                     {
-                        post.topics.map((topic, idx) => (
+                        post.topics.map((topic: Topics, idx: number) => (
                             <p key={idx}  className='text-white font-medium text-sm'><span className='blue-text-gradient'>#</span> {topic} {idx === post.topics.length - 1 ? '' : ',' }
                             </p>
                         ))

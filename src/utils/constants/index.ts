@@ -168,86 +168,86 @@ export const navLinks = [
 export const technologies = [
     {
         name: "HTML 5",
-        icon: "../../../public/imgs/html.png",
+        icon: "/imgs/html.png",
     },
     {
         name: "CSS 3",
-        icon: "../../../public/imgs/css.png",
+        icon: "/imgs/css.png",
     },
     {
         name: "JavaScript",
-        icon: "../../../public/imgs/javascript.png",
+        icon: "/imgs/javascript.png",
     },
     {
         name: "TypeScript",
-        icon: "../../../public/imgs/typescript.png",
+        icon: "/imgs/typescript.png",
     },
     {
         name: "SwiftUI",
-        icon: "../../../public/imgs/swiftUI.png",
+        icon: "/imgs/swiftUI.png",
     },
     {
         name: "UI Kit",
-        icon: "../../../public/imgs/UIKit.webp",
+        icon: "/imgs/UIKit.webp",
     },
     {
         name: "React Native",
-        icon: "../../../public/imgs/reactNative.png",
+        icon: "/imgs/reactNative.png",
     },
     {
         name: "Expo",
-        icon: "../../../public/imgs/expoGo.png",
+        icon: "/imgs/expoGo.png",
     },
     // {
     //     name: "Jest",
-    //     icon: "../../../public/imgs/jest.png",
+    //     icon: "/imgs/jest.png",
     // },
     // {
     //     name: "Detox",
-    //     icon: "../../../public/imgs/Detox.png",
+    //     icon: "/imgs/Detox.png",
     // },
     {
         name: "React JS",
-        icon: "../../../public/imgs/reactjs.png",
+        icon: "/imgs/reactjs.png",
     },
     {
         name: "Next JS",
-        icon: "../../../public/imgs/nextjs.png",
+        icon: "/imgs/nextjs.png",
     },
     // {
     //     name: "Redux Toolkit",
-    //     icon: "../../../public/imgs/redux.png",
+    //     icon: "/imgs/redux.png",
     // },
     {
         name: "Node JS",
-        icon: "../../../public/imgs/nodejs.png",
+        icon: "/imgs/nodejs.png",
     },
     // {
     //     name: "MongoDB",
-    //     icon: "../../../public/imgs/mongodb.png",
+    //     icon: "/imgs/mongodb.png",
     // },
     {
         name: "Supabase",
-        icon: "../../../public/imgs/supabase.png",
+        icon: "/imgs/supabase.png",
     },
     // {
     //     name: "Tailwind CSS",
-    //     icon: "../../../public/imgs/tailwind.png",
+    //     icon: "/imgs/tailwind.png",
     // },
     // {
     //     name: "Ant Design",
-    //     icon: "../../../public/imgs/ant-design.png",
+    //     icon: "/imgs/ant-design.png",
     // },
     // {
     //     name: "Material UI",
-    //     icon: "../../../public/imgs/material-ui.png",
+    //     icon: "/imgs/material-ui.png",
     // },
     // {
     //     name: "git",
-    //     icon: "../../../public/imgs/git.png",
+    //     icon: "/imgs/git.png",
     // },
     // {
     //     name: "GitHub",
-    //     icon: "../../../public/imgs/gitHub.png",
+    //     icon: "/imgs/gitHub.png",
     // },
 ];

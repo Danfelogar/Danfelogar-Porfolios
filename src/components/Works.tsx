@@ -40,7 +40,7 @@ const ProjectCard = ({
                 className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
               >
                 <img
-                  src={"../../public/icons/githubLogo.svg"}
+                  src={"/icons/githubLogo.svg"}
                   alt='source code'
                   className='w-7 h-7 object-contain'
                 />
@@ -53,7 +53,7 @@ const ProjectCard = ({
                 className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
               >
                 <img
-                  src={"../../public/icons/appStore.svg"}
+                  src={"/icons/appStore.svg"}
                   alt='source code'
                   className='w-7 h-7 object-contain'
                 />
@@ -66,7 +66,7 @@ const ProjectCard = ({
                 className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
               >
                 <img
-                  src={"../../public/icons/logo-google-playstore.svg"}
+                  src={"/icons/logo-google-playstore.svg"}
                   alt='source code'
                   className='w-6 h-6 object-contain'
                 />
@@ -79,7 +79,7 @@ const ProjectCard = ({
                 className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
               >
                 <img
-                  src={"../../public/icons/search-circle-outline.svg"}
+                  src={"/icons/search-circle-outline.svg"}
                   alt='source code'
                   className='w-8 h-8 object-contain'
                 />
@@ -94,7 +94,7 @@ const ProjectCard = ({
           </div>
 
           <div className='mt-4 flex flex-wrap gap-2'>
-            {project.technologies.map((tech: keyof typeof ITechnologies, idx) => (
+            {project.technologies.map((tech: keyof typeof ITechnologies, idx:number) => (
               <p
                 key={`${tech}-${idx}`}
                 style={{color: TechnologyColors[tech]}}
