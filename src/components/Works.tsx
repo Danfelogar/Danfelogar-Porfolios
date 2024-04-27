@@ -90,7 +90,7 @@ const ProjectCard = ({
 
           <div className='mt-5'>
             <h3 className='text-white font-bold text-[24px]'>{project.name}</h3>
-            <p className='mt-2 text-secondary text-[14px]'>{lang === "en" ? project.description_en : project.description_es}</p>
+            <p className='mt-2 text-secondary text-[14px] line-clamp-4'>{lang === "en" ? project.description_en : project.description_es}</p>
           </div>
 
           <div className='mt-4 flex flex-wrap gap-2'>

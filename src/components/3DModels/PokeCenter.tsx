@@ -7,7 +7,7 @@ const PokeBuild = ({isDesktop}:{isDesktop: boolean}) => {
     const pokeBuild = useGLTF("/3DModels/pokeCenter/scene.gltf");
   
     return (
-      <primitive  rotation={[-100, -0.2, -0.27]} object={pokeBuild.scene} scale={isDesktop ? 2.8 : 2} position-y={0} rotation-y={0} />
+      <primitive  rotation={[-100, -0.2, -0.27]} object={pokeBuild.scene} scale={isDesktop ? 1.9 : 2} position-y={0} rotation-y={0} />
     );
   };
 

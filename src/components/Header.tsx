@@ -36,7 +36,7 @@ export const Header = ({lang}:{lang: "en" | "es" | undefined}) => {
             <span className="letters">Mobile Developer</span>
           </span> */}
         </h1>
-        <p className={`${styles.heroSubText} mt-2 text-white-200`}>
+        <p className={`${styles.heroSubText} mt-2 text-purple-600`}>
           {t("header.subtitle1")} <br className='sm:block hidden' />
           {t("header.subtitle2")}
         </p>
