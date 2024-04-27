@@ -32,7 +32,16 @@ export default {
 			},
 			backgroundImage: {
 				"personal-bg": "url('/public/imgs/header_bg_op_4.png')",
-			}
+			},
+			animation: {
+				slideUp: 'slideUp 0.2s ease-in-out forwards',
+			  },
+			  keyframes: {
+				slideUp: {
+				  '0%': { transform: 'translateY(100%)', opacity: '0' },
+				  '100%': { transform: 'translateY(0)', opacity: '1' },
+				},
+			  },
 		},
 	},
   plugins: [require("@tailwindcss/typography")],

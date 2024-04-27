@@ -148,7 +148,7 @@ export enum Topics {
     SWIFTUI = 'SWIFTUI',
     UIKIT = 'UIKIT',
    }
-   
+
 
 export const navLinks = [
     {
@@ -165,89 +165,120 @@ export const navLinks = [
     }
 ]
 
+export const removeQuotes = (str: string): string => {
+    return str.replace(/['"]+/g, '');
+}
+
+
 export const technologies = [
     {
         name: "HTML 5",
         icon: "/imgs/html.png",
+        color: "#E44D26"
     },
     {
         name: "CSS 3",
         icon: "/imgs/css.png",
+        color: "#1572B6"
     },
     {
         name: "JavaScript",
         icon: "/imgs/javascript.png",
+        color: "#F7DF1E"
     },
     {
         name: "TypeScript",
         icon: "/imgs/typescript.png",
+        color: "#007ACC"
     },
     {
         name: "SwiftUI",
         icon: "/imgs/swiftUI.png",
+        color: "#0070fc"
     },
     {
         name: "UI Kit",
         icon: "/imgs/UIKit.webp",
+        color: "#2684FF"
     },
     {
         name: "React Native",
         icon: "/imgs/reactNative.png",
+        color: "#61DBFB"
     },
     {
         name: "Expo",
         icon: "/imgs/expoGo.png",
+        color: "#4630EB"
     },
-    // {
-    //     name: "Jest",
-    //     icon: "/imgs/jest.png",
-    // },
-    // {
-    //     name: "Detox",
-    //     icon: "/imgs/Detox.png",
-    // },
+    {
+        name: "Jest",
+        icon: "/imgs/jest.png",
+        color: "#C21325"
+    },
+    {
+        name: "Detox",
+        icon: "/imgs/Detox.png",
+        color: "#5AC8FA"
+    },
     {
         name: "React JS",
         icon: "/imgs/reactjs.png",
+        color: "#61DAFB"
     },
     {
         name: "Next JS",
         icon: "/imgs/nextjs.png",
+        color: "#FAFAFA"
     },
-    // {
-    //     name: "Redux Toolkit",
-    //     icon: "/imgs/redux.png",
-    // },
+    {
+        name: "Astro",
+        icon: "/imgs/astro.png",
+        color: "#ff5c02"
+    },
+    {
+        name: "Redux Toolkit",
+        icon: "/imgs/redux.png",
+        color: "#764ABC"
+    },
     {
         name: "Node JS",
         icon: "/imgs/nodejs.png",
+        color: "#68A063"
     },
-    // {
-    //     name: "MongoDB",
-    //     icon: "/imgs/mongodb.png",
-    // },
+    {
+        name: "MongoDB",
+        icon: "/imgs/mongodb.png",
+        color: "#4DB33D"
+    },
     {
         name: "Supabase",
         icon: "/imgs/supabase.png",
+        color: "#3ecf8e"
     },
-    // {
-    //     name: "Tailwind CSS",
-    //     icon: "/imgs/tailwind.png",
-    // },
-    // {
-    //     name: "Ant Design",
-    //     icon: "/imgs/ant-design.png",
-    // },
-    // {
-    //     name: "Material UI",
-    //     icon: "/imgs/material-ui.png",
-    // },
-    // {
-    //     name: "git",
-    //     icon: "/imgs/git.png",
-    // },
-    // {
-    //     name: "GitHub",
-    //     icon: "/imgs/gitHub.png",
-    // },
+    {
+        name: "Tailwind CSS",
+        icon: "/imgs/tailwind.png",
+        color: "#38B2AC"
+    },
+    {
+        name: "Ant Design",
+        icon: "/imgs/ant-design.png",
+        color: "#0170FE"
+    },
+    {
+        name: "Material UI",
+        icon: "/imgs/material-ui.png",
+        color: "#0081CB"
+    },
+    {
+        name: "git",
+        icon: "/imgs/git.png",
+        color: "#F05032"
+    },
+    {
+        name: "GitHub",
+        icon: "/imgs/gitHub.png",
+        color: "#FAFAFA"
+    },
 ];
