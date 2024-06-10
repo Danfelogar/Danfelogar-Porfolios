@@ -14,10 +14,10 @@ index}: {post: IPost; lang?: "en" | "es";index: number}) => (
       onClick={() => window.open(post.url_post, '_blank')}
     >
       <p className='text-white font-black text-[48px]'>"</p>
-  
+
       <div className='mt-1 '>
         <p className='min-h-24 text-white tracking-wider text-[18px]'>{lang === "en" ? post.title_en : post.title_es}</p>
-  
+
         <div className='mt-7 flex justify-between items-center gap-1'>
           <div className='flex-1 flex flex-col'>
                 <div className='flex w-full'>
@@ -32,12 +32,14 @@ index}: {post: IPost; lang?: "en" | "es";index: number}) => (
             {formatDateToDDMMYYYY(post.createdAt)}
             </p>
           </div>
-  
+
+        <div className='w-10 h-10 rounded-full  border border-white justify-center items-center p-0.5'>
           <img
             src={post.image}
             alt={`feedback_by-${post.createdAt}`}
-            className='w-10 h-10 rounded-full object-fill'
-          />
+            className='rounded-full w-full h-full object-fill'
+            />
+            </div>
         </div>
       </div>
     </motion.div>
