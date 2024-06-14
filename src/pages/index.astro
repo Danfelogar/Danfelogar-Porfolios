@@ -10,7 +10,7 @@ import { Works } from '@/components/Works';
 import { PopularPosts } from '@/components/PopularPosts';
 import { Contact } from '@/components/Contact';
 import SmokeBackground from '@/components/common/SmokeBackground.astro'
-import {Stars} from '@/components/3DModels/Stars'
+// import {Stars} from '@/components/3DModels/Stars'
 // const { pathname } = Astro.url;
 
 const lang = getLangFromUrl(Astro.url);
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 		<PopularPosts client:load transition:persist lang={lang}/>
 		<div class="relative z-0">
 			<Contact client:load transition:persist lang={lang} />
-			<Stars client:load transition:persist/>
+			<!-- <Stars client:load transition:persist/> -->
 		</div>
 	</div>
 </Layout>

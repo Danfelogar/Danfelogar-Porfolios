@@ -129,7 +129,7 @@ export const Contact = ({lang}:{lang: "en" | "es" | undefined}) => {
       initial='hidden'
       whileInView='show'
         variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto m-auto w-[80%] xl:w-[50%] md:h-[550px] h-[350px]'
+        className='xl:flex-1 xl:h-auto m-auto xl:m-0 w-[80%] xl:w-[50%] md:h-[550px] h-[350px]'
       >
         <PokeCenter />
       </motion.div>

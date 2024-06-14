@@ -38,6 +38,7 @@ export const PokeCenter = () => {
     return (
         <Canvas
           shadows
+          className="w-full h-full"
           frameloop='demand'
           dpr={[1, 2]}
           gl={{ preserveDrawingBuffer: true }}
@@ -56,7 +57,6 @@ export const PokeCenter = () => {
               minPolarAngle={Math.PI / 2}
             />
             <PokeBuild isDesktop={isDesktop} />
-    
             <Preload all />
           </Suspense>
         </Canvas>

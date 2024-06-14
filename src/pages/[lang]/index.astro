@@ -10,7 +10,7 @@ import SmokeBackground from '@/components/common/SmokeBackground.astro';
 import { Tech } from '@/components/Tech';
 import { PopularPosts } from '@/components/PopularPosts';
 import { Contact } from '@/components/Contact';
-import { Stars } from '@/components/3DModels/Stars';
+// import { Stars } from '@/components/3DModels/Stars';
 
 export function getStaticPaths () {
  return [
@@ -49,7 +49,7 @@ const t = useTranslations(lang);
 		<PopularPosts client:load transition:persist lang={lang}/>
 		<div class="relative z-0">
 			<Contact client:load transition:persist lang={lang} />
-			<Stars client:load transition:persist/>
+			<!-- <Stars client:load transition:persist/> -->
 		</div>
 	</div>
 </Layout>
