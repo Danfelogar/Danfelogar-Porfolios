@@ -62,7 +62,7 @@ export const AboutMe = ({lang}:{lang: "en" | "es" | undefined}) => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        {t("about.text1")} <span className='text-alternative-primary'>{t("about.text2")}</span>{t("about.text3")}<span className='text-alternative-primary'>{`${years}`} {t("about.textYear")} {t("about.and")} {`${months}`} meses {t("about.text4")}
+        {t("about.text1")} <span className='text-alternative-primary'>{t("about.text2")}</span>{t("about.text3")}<span className='text-alternative-primary'>{`${years}`} {t("about.textYear")}  { months !== 0 && <>{t("about.and")} {`${months}`} {t("about.textMonth")}</>} {t("about.text4")}
           </span> {t("about.text5")}
       </motion.p>
 

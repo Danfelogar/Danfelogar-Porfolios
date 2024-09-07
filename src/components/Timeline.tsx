@@ -103,7 +103,7 @@ export const Timeline = ({lang}:{lang: "en" | "es" | undefined})  => {
         </h2>
       </motion.div>
 
-      <div className='mt-20 flex flex-col'>
+      <div className='mt-20 flex flex-col overflow-hidden'>
         <VerticalTimeline>
           {experiences.map((experience, index) => (
             <ExperienceCard

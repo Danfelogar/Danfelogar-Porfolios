@@ -33,7 +33,7 @@ const t = useTranslations(lang);
 
 ---
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
-	<div class="relative z-0 bg-primary-2">
+	<div class="relative z-0 bg-primary-2 overflow-hidden">
 		<div class="bg-personal-bg bg-cover bg-no-repeat bg-center">
 			<Navbar />
 			<Header client:load transition:persist lang={lang}/>

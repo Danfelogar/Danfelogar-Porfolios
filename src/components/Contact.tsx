@@ -131,7 +131,10 @@ export const Contact = ({lang}:{lang: "en" | "es" | undefined}) => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto m-auto xl:m-0 w-[80%] xl:w-[50%] md:h-[550px] h-[350px]'
       >
-        <PokeCenter />
+        {/* <PokeCenter /> */}
+        <video className="w-[100%] h-[100%] object-cover" autoPlay loop muted playsInline>
+          <source src="/public/videos/secondDanfelogar.mov" type="video/mp4"/>
+        </video>
       </motion.div>
     </div>
   );
