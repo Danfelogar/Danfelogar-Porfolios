@@ -43,8 +43,6 @@ export const Header = ({lang}:{lang: "en" | "es" | undefined}) => {
     <div className="relative w-52 md:w-80 lg:w-[20rem] xl:w-[30rem] h-52 md:h-80 lg:h-[20rem] xl:h-[30rem] object-cover top-[50%] md:top-[40%] xl:top-56 2xl:top-80 left-20 md:left-56 lg:left-[35%] overflow-hidden">
       <video className="w-52 md:w-80 lg:w-[20rem] xl:w-[30rem] h-52 md:h-80 lg:h-[20rem] xl:h-[30rem] object-cover" autoPlay loop muted playsInline>
         <source src="https://res.cloudinary.com/danfelogar/video/upload/v1725905543/sepqt7ykfpdwpmta3muu.webm" type="video/webm"/>
-        {/* <source src="https://res.cloudinary.com/danfelogar/video/upload/v1725900078/j3wihi1a2r0susb5nare.mp4" type="video/mp4"/> */}
-
       </video>
       <img
       src={'https://res.cloudinary.com/danfelogar/image/upload/v1725692129/zugak4uqq5apwhch7oc7.png'}

@@ -133,7 +133,7 @@ export const Contact = ({lang}:{lang: "en" | "es" | undefined}) => {
       >
         {/* <PokeCenter /> */}
         <video className="w-[100%] h-[100%] object-cover" autoPlay loop muted playsInline>
-          <source src="https://res.cloudinary.com/danfelogar/video/upload/v1725691111/d2z5rujycp0l6chq1bxw.mov" type="video/mp4"/>
+          <source src="https://res.cloudinary.com/danfelogar/video/upload/v1725905917/t3pyxicakstoxxs1yeth.webm" type="video/webm"/>
         </video>
       </motion.div>
     </div>
