@@ -65,7 +65,7 @@ export const Timeline = ({lang}:{lang: "en" | "es" | undefined})  => {
   const [ experiences, setExperiences ] = useState<IExperience[]>([])
 
   const getWorkExperience = async () => {
-    const response = await fetch(`${getEnvVariable("PUBLIC_SUPABASE_URL")}/Experience`,{
+    const response = await fetch(`${getEnvVariable("PUBLIC_SUPABASE_URL")}/Experience?order=id.asc`,{
       method: 'GET',
       headers: {
         'apikey': getEnvVariable("PUBLIC_SUPABASE_ANON_KEY"),
@@ -73,7 +73,8 @@ export const Timeline = ({lang}:{lang: "en" | "es" | undefined})  => {
       },
     });
 
-  const result = await response.json() as IExperience[]
+    const result = await response.json() as IExperience[]
+    console.log({result});
     setExperiences(result)
   }
 
