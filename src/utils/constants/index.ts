@@ -1,6 +1,6 @@
 export function timeOfExperience(): { years: number, months: number }{
     // Crear la fecha de inicio (diciembre de 2021)
-    const fechaInicio = new Date(2021, 9, 1); // Los meses en JavaScript empiezan en 0 (enero)
+    const fechaInicio = new Date(2021, 4, 1); // Los meses en JavaScript empiezan en 0 (enero)
 
     // Obtener la fecha actual
     const fechaActual = new Date();
