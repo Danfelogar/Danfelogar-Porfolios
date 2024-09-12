@@ -74,7 +74,6 @@ export const Timeline = ({lang}:{lang: "en" | "es" | undefined})  => {
     });
 
     const result = await response.json() as IExperience[]
-    console.log({result});
     setExperiences(result)
   }
 
