@@ -45,7 +45,7 @@ export const Header = ({lang}:{lang: "en" | "es" | undefined}) => {
         <source src="https://res.cloudinary.com/danfelogar/video/upload/v1725905543/sepqt7ykfpdwpmta3muu.webm" type="video/webm"/>
       </video>
       <img
-      src={'https://res.cloudinary.com/danfelogar/image/upload/v1725692129/zugak4uqq5apwhch7oc7.png'}
+      src={'https://res.cloudinary.com/danfelogar/image/upload/v1726764446/ar4a7q9dqjnzinclgkcy.png'}
       alt='macbookm3'
       className='-bottom-[32%] absolute z-10 object-contain'
       />

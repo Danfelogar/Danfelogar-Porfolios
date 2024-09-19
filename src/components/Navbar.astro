@@ -26,7 +26,7 @@ const isOpenModal = $settings.get().showNavModal
 
         <ul class='list-none hidden sm:flex flex-row gap-5'>
           <a href={`${lang === "en" ? hrefES : hrefEN }`} class="cursor-pointer">
-            <img src={lang === "en" ? "/imgs/spain.png" : "/imgs/usa.png"} class="w-6 h-6" />
+            <img alt="flag-idiom" src={lang === "en" ? "/imgs/spain.png" : "/imgs/usa.png"} class="w-6 h-6" />
           </a>
           {navLinks.map((nav: {
             id: string;
@@ -46,7 +46,7 @@ const isOpenModal = $settings.get().showNavModal
 
         <ul class='list-none sm:hidden flex flex-row gap-5'>
           <a href={`${lang === "en" ? hrefES : hrefEN }`} class="cursor-pointer">
-            <img src={lang === "en" ? "/imgs/spain.png" : "/imgs/usa.png"} class="w-6 h-6" />
+            <img alt="flag-idiom" src={lang === "en" ? "/imgs/spain.png" : "/imgs/usa.png"} class="w-6 h-6" />
           </a>
           <img
           src={isOpenModal ? "/icons/close.svg" : "/icons/menu.svg"}
