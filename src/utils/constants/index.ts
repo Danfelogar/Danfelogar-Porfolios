@@ -92,6 +92,7 @@ export enum ITechnologies {
     NEXT_JS = 'next-js',
     NODE_JS = 'node-js',
     EXPRESS = 'express',
+    NEST_JS = 'nest-js',
     MONGO_DB = 'mongo-db',
     PRISMA = 'prisma',
     SUPABASE = 'supabase',
@@ -118,6 +119,7 @@ export enum TechnologyColors {
     NEXT_JS = '#0070F3',
     NODE_JS = '#339933',
     EXPRESS = '#317132',
+    NEST_JS = '#E0234E',
     MONGO_DB = '#47A248',
     PRISMA = '#3982CE',
     SUPABASE = '#60A5FA',
@@ -140,6 +142,7 @@ export enum Topics {
     NEXT_JS = 'NEXT_JS',
     NODE_JS = 'NODE_JS',
     EXPRESS = 'EXPRESS',
+    NEST_JS = 'NEST_JS',
     MONGO_DB = 'MONGO_DB',
     AWS = 'AWS',
     FIREBASE = 'FIREBASE',
@@ -245,6 +248,11 @@ export const technologies = [
         name: "Node JS",
         icon: "/imgs/nodejs.png",
         color: "#68A063"
+    },
+    {
+        name: "Nest JS",
+        icon: "/imgs/nestjs.png",
+        color: "#E0234E"
     },
     {
         name: "MongoDB",
