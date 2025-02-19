@@ -1,5 +1,7 @@
 ---
 import SEO, { type Preload } from '@/components/SEO.astro';
+import  SpeedInsights  from "@vercel/speed-insights/astro"
+
 import '@fontsource/poppins';
 
 interface Props {
@@ -16,6 +18,7 @@ const { title, description, preload, image, lang }: Props = Astro.props;
 <!doctype html>
 <html lang={lang}>
 	<head>
+		<SpeedInsights/>
 		<SEO
 			description={description}
 			image={image}
