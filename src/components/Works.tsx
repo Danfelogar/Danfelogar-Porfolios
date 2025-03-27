@@ -125,24 +125,24 @@ export const Works = ({lang}:{lang: "en" | "es" | undefined}) => {
     const t = useTranslations(lang);
 
     const getWorkProjects = async () => {
-        const response = await fetch(`${getEnvVariable("PUBLIC_SUPABASE_URL")}/Projects`,{
-          method: 'GET',
-          headers: {
-            'apikey': getEnvVariable("PUBLIC_SUPABASE_ANON_KEY"),
-            'Content-Type': 'application/json',
-          },
-        });
+      const response = await fetch(`${getEnvVariable("PUBLIC_SUPABASE_URL")}/Projects?order=id.asc`,{
+        method: 'GET',
+        headers: {
+          'apikey': getEnvVariable("PUBLIC_SUPABASE_ANON_KEY"),
+          'Content-Type': 'application/json',
+        },
+      });
 
-        const result = await response.json() as IProjects[]
-            setProjectsCount({
-              web: result.filter((project) => project.typeDevelopment === ITypeDevelopment.WEB).length,
-              mobile: result.filter((project) => project.typeDevelopment === ITypeDevelopment.MOBILE).length,
-              ios: result.filter((project) => project.typeDevelopment === ITypeDevelopment.NATIVE_IOS).length,
-              all: result.length,
-            })
-            setProjects(result)
-            setProjectsFilters(result)
-        }
+      const result = await response.json() as IProjects[]
+      setProjectsCount({
+        web: result.filter((project) => project.typeDevelopment === ITypeDevelopment.WEB).length,
+        mobile: result.filter((project) => project.typeDevelopment === ITypeDevelopment.MOBILE).length,
+        ios: result.filter((project) => project.typeDevelopment === ITypeDevelopment.NATIVE_IOS).length,
+        all: result.length,
+      })
+      setProjects(result)
+      setProjectsFilters(result)
+    }
 
     const filterProjects = () => {
       if(filterType === "ALL") {

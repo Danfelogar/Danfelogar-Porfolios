@@ -107,6 +107,7 @@ export enum ITechnologies {
     TAILWIND_CSS = 'tailwind-css',
     SWIFTUI = 'swiftui',
     UIKIT = 'uikit',
+    GRAPH_QL = 'graphql',
 }
 
 export enum TechnologyColors {
@@ -134,6 +135,7 @@ export enum TechnologyColors {
     TAILWIND_CSS = '#38B2AC',
     SWIFTUI = '#FF6700',
     UIKIT = '#00A8FF',
+    GRAPH_QL = '#E10098',
 }
 
 export enum Topics {
