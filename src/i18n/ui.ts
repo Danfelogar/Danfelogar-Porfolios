@@ -26,6 +26,7 @@ export const uiText = {
         "about.reactNativeDeveloper": "React Native Developer",
         "about.backendDeveloper": "Backend Developer",
         "about.iOSDeveloper": "iOS Developer",
+        "about.androidDeveloper": "Android Developer",
         "about.pdf": "Download my CV",
         //Timeline
         "timeline.title": "Where I Have Worked So Far",
@@ -38,6 +39,7 @@ export const uiText = {
         "projects.web": "Web Development",
         "projects.mobile": "Hybrid Mobile Development",
         "projects.ios": "iOS Native Development",
+        "projects.android": "Android Native Development",
         //popular posts
         "popularPosts.title": "My Contribution to the Community",
         "popularPosts.subTitle": "Most Popular Posts.",
@@ -82,6 +84,7 @@ export const uiText = {
         "about.reactNativeDeveloper": "Desarrollador React Native",
         "about.backendDeveloper": "Desarrollador Backend",
         "about.iOSDeveloper": "Desarrollador iOS",
+        "about.androidDeveloper": "Desarrollador Android",
         "about.pdf": "Descarga mi CV",
         //Timeline
         "timeline.title": "Donde he trabajado hasta ahora",
@@ -94,6 +97,7 @@ export const uiText = {
         "projects.web":"Desarrollo Web",
         "projects.mobile":"Desarrollo Móvil Híbrido",
         "projects.ios":"Desarrollo Nativo IOS",
+        "projects.android":"Desarrollo Nativo Android",
         //popular posts
         "popularPosts.title": "Mi contribución a la comunidad",
         "popularPosts.subTitle": "Publicaciones más populares.",

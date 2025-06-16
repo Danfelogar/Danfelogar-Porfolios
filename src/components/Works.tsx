@@ -117,6 +117,7 @@ export const Works = ({lang}:{lang: "en" | "es" | undefined}) => {
       web: 0,
       mobile: 0,
       ios: 0,
+      android: 0,
       all: 0,
     })
     const [ref, inView] = useInView({
@@ -138,6 +139,7 @@ export const Works = ({lang}:{lang: "en" | "es" | undefined}) => {
         web: result.filter((project) => project.typeDevelopment === ITypeDevelopment.WEB).length,
         mobile: result.filter((project) => project.typeDevelopment === ITypeDevelopment.MOBILE).length,
         ios: result.filter((project) => project.typeDevelopment === ITypeDevelopment.NATIVE_IOS).length,
+        android: result.filter((project) => project.typeDevelopment === ITypeDevelopment.NATIVE_ANDROID).length,
         all: result.length,
       })
       setProjects(result)
@@ -218,6 +220,12 @@ export const Works = ({lang}:{lang: "en" | "es" | undefined}) => {
         }} className={`group w-62 p-6 flex gap-3 rounded-xl items-center ${filterType === ITypeDevelopment.NATIVE_IOS && 'bg-primary'} hover:bg-primary cursor-pointer`}>
           <LogoApple className={`w-6 h-6 text-alternative-primary ${filterType === ITypeDevelopment.NATIVE_IOS && "text-white-100"} group-hover:text-white-100`} />
           <p className={`text-alternative-primary ${filterType === ITypeDevelopment.NATIVE_IOS && "text-white-100"} group-hover:text-white-100`}>{t("projects.ios")}{" "}<span className={`opacity-0 group-hover:opacity-100 ${filterType === ITypeDevelopment.NATIVE_IOS && "opacity-100"} transition-opacity duration-200 transform group-hover:translate-y-[-5px] ml-2`}>{projectsCount.ios}</span></p>
+        </div>
+         <div onClick={()=>{
+        setFilterType(ITypeDevelopment.NATIVE_ANDROID)
+        }} className={`group w-62 p-6 flex gap-3 rounded-xl items-center ${filterType === ITypeDevelopment.NATIVE_ANDROID && 'bg-primary'} hover:bg-primary cursor-pointer`}>
+          <LogoApple className={`w-6 h-6 text-alternative-primary ${filterType === ITypeDevelopment.NATIVE_ANDROID && "text-white-100"} group-hover:text-white-100`} />
+          <p className={`text-alternative-primary ${filterType === ITypeDevelopment.NATIVE_ANDROID && "text-white-100"} group-hover:text-white-100`}>{t("projects.android")}{" "}<span className={`opacity-0 group-hover:opacity-100 ${filterType === ITypeDevelopment.NATIVE_ANDROID && "opacity-100"} transition-opacity duration-200 transform group-hover:translate-y-[-5px] ml-2`}>{projectsCount.android}</span></p>
         </div>
       </div>
 

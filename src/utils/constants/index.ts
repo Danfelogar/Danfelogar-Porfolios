@@ -80,6 +80,7 @@ export enum ITypeDevelopment {
     MOBILE = 'MOBILE',
     WEB = 'WEB',
     NATIVE_IOS = 'NATIVE_IOS',
+    NATIVE_ANDROID = 'NATIVE_ANDROID',
 }
 
 export enum ITechnologies {
@@ -107,6 +108,8 @@ export enum ITechnologies {
     TAILWIND_CSS = 'tailwind-css',
     SWIFTUI = 'swiftui',
     UIKIT = 'uikit',
+    KOTLIN = 'kotlin',
+    JETPACK_COMPOSE = 'jetpack-compose',
     GRAPH_QL = 'graphql',
 }
 
@@ -135,6 +138,8 @@ export enum TechnologyColors {
     TAILWIND_CSS = '#38B2AC',
     SWIFTUI = '#FF6700',
     UIKIT = '#00A8FF',
+    KOTLIN = '#7F52FF',
+    JETPACK_COMPOSE = '#3DDC84',
     GRAPH_QL = '#E10098',
 }
 
@@ -152,6 +157,8 @@ export enum Topics {
     SUPABASE = 'SUPABASE',
     SWIFTUI = 'SWIFTUI',
     UIKIT = 'UIKIT',
+    KOTLIN = 'KOTLIN',
+    JETPACK_COMPOSE = 'JETPACK_COMPOSE',
    }
 
 
@@ -205,6 +212,16 @@ export const technologies = [
         name: "UI Kit",
         icon: "/imgs/UIKit.webp",
         color: "#2684FF"
+    },
+    {
+        name: "Kotlin",
+        icon: "/imgs/kotlinIcon.svg",
+        color: "#7F52FF"
+    },
+    {
+        name: "Compose",
+        icon: "/imgs/jetpackComposeIcon.png",
+        color: "#3DDC84"
     },
     {
         name: "React Native",

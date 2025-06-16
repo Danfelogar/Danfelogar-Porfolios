@@ -74,9 +74,10 @@ export const AboutMe = ({lang}:{lang: "en" | "es" | undefined}) => {
         <ServiceCard  index={1} icon="/icons/reactNativeIcon.svg" title={t("about.reactNativeDeveloper")} />
         <ServiceCard  index={2} icon="/icons/backendIcon.svg" title={t("about.backendDeveloper")} />
         <ServiceCard  index={3} icon="/icons/swiftIcon.svg" title={t("about.iOSDeveloper")} />
+        <ServiceCard  index={4} icon="/icons/androidIcon.svg" title={t("about.androidDeveloper")} />
         <ServiceCard pdfFile={
           lang === "en" ? "/pdfs/Cv-danielpolo-frontend-english.pdf" : "/pdfs/Cv-danielpolo-frontend-español.pdf"
-        } index={4} icon="/icons/pdf.svg" title={t("about.pdf")} />
+        } index={5} icon="/icons/pdf.svg" title={t("about.pdf")} />
       </div>
     </>
   </motion.section>
